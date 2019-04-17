@@ -5,7 +5,7 @@ class rulesAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.RULES_URL;
-    this.basePath = "users";
+    this.basePath = 'rules';
   }
 
   willSendRequest(request) {

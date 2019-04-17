@@ -5,7 +5,7 @@ class schedulesAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.SCHEDULES_URL;
-    this.basePath = "available-schedules";
+    this.basePath = 'available-schedules';
   }
 
   willSendRequest(request) {
