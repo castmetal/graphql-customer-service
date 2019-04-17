@@ -12,20 +12,23 @@ class rulesAPI extends RESTDataSource {
     //request.headers.set('Authorization', this.context.token);
   }
 
-  async signIn(identification, password) {
-    const data = await this.post(`${this.basePath}/signin`, {
-      identification, 
-      password
-    });
-    return data.data.token;
-  }
-
   async getRules(type, rule_name, start_time, end_time) {
-    const result = await this.get(`${this.basePath}`, {
-      type, rule_name, start_time, end_time
-    });
+    const args = {};
+    if (type) {
+      args['type'] = type;
+    }
+    if (rule_name) {
+      args['rule_name'] = rule_name;
+    }
+    if (start_time) {
+      args['start_time'] = start_time;
+    }
+    if (end_time) {
+      args['end_time'] = end_time;
+    }
+    const result = await this.get(`${this.basePath}`, args);
     
-    return result.data.users;
+    return result.data.rules;
   }
 
   async createRule(input) {
